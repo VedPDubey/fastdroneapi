@@ -8,17 +8,22 @@ from PIL import Image
 import numpy as np
 from matplotlib import cm
 from keras_segmentation.models.all_models import model_from_name
-import socket
 
 app = FastAPI()
 
 @app.post('/predict')
-async def predict_image(file:UploadFile=File(...)):
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    filename = f'{dir_path}\{file.filename}'
-    f = open(f'{filename}', 'wb')
-    content = await file.read()
-    f.write(content)
+async def predict_image(image:UploadFile=File(...)):
+    print(image.file)
+    # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
+    try:
+        os.mkdir("images")
+        print(os.getcwd())
+    except Exception as e:
+        print(e) 
+    file_name = os.getcwd()+"/images/"+image.filename.replace(" ", "-")
+    with open(file_name,'wb+') as f:
+        f.write(image.file.read())
+        f.close()
     def model_from_checkpoint_path(model_config, latest_weights):
 
         model = model_from_name[model_config['model_class']](
@@ -35,7 +40,7 @@ async def predict_image(file:UploadFile=File(...)):
     model = resU()
 
     out = model.predict_segmentation(
-        inp=filename,
+        inp=file_name,
         out_fname="/tmp/out.png"
     )
 
