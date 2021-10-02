@@ -12,7 +12,7 @@ import socket
 
 app = FastAPI()
 
-@app.post('/api/predict')
+@app.post('/predict')
 async def predict_image(file:UploadFile=File(...)):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     filename = f'{dir_path}\{file.filename}'
@@ -44,4 +44,4 @@ async def predict_image(file:UploadFile=File(...)):
     return FileResponse("output.png")
 
 if __name__=='__main__':
-    uvicorn.run(app,host=socket.gethostname(),port=5000)
+    uvicorn.run(app,host=socket.gethostname(),port=8080)
