@@ -12,11 +12,7 @@ import socket
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-@app.post('/api/drone predict')
+@app.post('/api/predict')
 async def predict_image(file:UploadFile=File(...)):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     filename = f'{dir_path}\{file.filename}'
