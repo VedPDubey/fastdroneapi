@@ -10,3 +10,5 @@ pydantic==1.8.2
 tensorflow-cpu
 Keras==2.4.0
 gunicorn==19.9.0
+python3-opencv
+opencv-python
