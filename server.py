@@ -8,6 +8,7 @@ from PIL import Image
 import numpy as np
 from matplotlib import cm
 from keras_segmentation.models.all_models import model_from_name
+import socket
 
 app = FastAPI()
 
@@ -48,4 +49,4 @@ async def predict_image(file:UploadFile=File(...)):
     return FileResponse("output.png")
 
 if __name__=='__main__':
-    uvicorn.run(app,host='127.0.0.1',port=8080)
+    uvicorn.run(app,host=socket.gethostname(),port=8000)
