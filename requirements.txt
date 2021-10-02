@@ -1,0 +1,14 @@
+keras_nightly==2.5.0
+uvicorn==0.14.0
+keras_segmentation==0.3.0
+matplotlib==3.3.2
+starlette==0.14.2
+numpy==1.18.5
+fastapi==0.68.1
+Pillow==8.3.2
+gunicorn==19.9.0
+pydantic==1.8.2
+keras==2.4.0
+tensorflow-cpu
+uvloop
+httptools
