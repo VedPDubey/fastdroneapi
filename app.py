@@ -49,4 +49,4 @@ async def predict_image(file:UploadFile=File(...)):
     return FileResponse("output.png")
 
 if __name__=='__main__':
-    uvicorn.run(app,host=socket.gethostname(),port=8000)
+    uvicorn.run(app,host=socket.gethostname(),port=5000)
