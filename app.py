@@ -12,7 +12,6 @@ import socket
 
 app = FastAPI()
 
-
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -49,4 +48,4 @@ async def predict_image(file:UploadFile=File(...)):
     return FileResponse("output.png")
 
 if __name__=='__main__':
-    uvicorn.run(app,host=socket.gethostname(),port=5000)
+    uvicorn.run(app,host=socket.gethostname(),port=5002)
