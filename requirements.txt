@@ -12,3 +12,4 @@ Keras==2.4.0
 gunicorn==19.9.0
 opencv-python-headless
 skia-python
+python-multipart
