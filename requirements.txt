@@ -7,7 +7,8 @@ fastapi==0.68.1
 Pillow==8.3.2
 uvicorn==0.14.0
 pydantic==1.8.2
-tensorflow-cpu
+tensorflow-cpu==2.3.0
+tensorflow==2.3.0
 Keras==2.4.0
 gunicorn==19.9.0
 h5py==2.10.0
