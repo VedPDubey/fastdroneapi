@@ -28,7 +28,7 @@ async def predict_image(image:UploadFile=File(...)):
         model = model_from_name[model_config['model_class']](
             model_config['n_classes'], input_height=model_config['input_height'],
             input_width=model_config['input_width'])
-        model.load_weights(latest_weights)
+        model.load_weights("drone_segmentation_resnet50_unet.hdf5")
         return model
 
     def resU():
