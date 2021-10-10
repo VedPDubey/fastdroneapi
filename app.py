@@ -82,9 +82,6 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
     # load weights into new model
     model_satellite.load_weights("model_flood.h5")
     print("Loaded model from disk")
-
-    model_satellite.save('model_flood.hdf5')
-    model_satellite=load_model('model_flood.hdf5')
     print(image_satellite.file)
     # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
     try:
