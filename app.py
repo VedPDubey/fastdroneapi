@@ -14,9 +14,10 @@ from starlette.responses import StreamingResponse
 import cv2
 from pydantic import BaseModel
 import base64
-from tensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model,model_from_json
 import tensorflow as tf
 import socket
+import keras
 
 middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
 
@@ -72,9 +73,18 @@ async def predict_image(image:UploadFile=File(...)):
 
 @app.post('/predictflood',response_model=Analyzer)
 async def predict_satellite(image_satellite:UploadFile=File(...)):
-    # with open('floodseg.pkl', 'rb') as fi:  
-    #     model_satellite = pickle.load(fi)
-    model_satellite = load_model(os.path.abspath('satellite.h5'))
+    # model_satellite = load_model(os.path.abspath('satellite.h5'))
+    json_file = open('model_flood.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    model_satellite = model_from_json(loaded_model_json)
+
+    # load weights into new model
+    model_satellite.load_weights("model_flood.h5")
+    print("Loaded model from disk")
+
+    model_satellite.save('model_flood.hdf5')
+    model_satellite=load_model('model_flood.hdf5')
     print(image_satellite.file)
     # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
     try:
