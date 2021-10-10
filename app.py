@@ -74,7 +74,7 @@ async def predict_image(image:UploadFile=File(...)):
 async def predict_satellite(image_satellite:UploadFile=File(...)):
     # with open('floodseg.pkl', 'rb') as fi:  
     #     model_satellite = pickle.load(fi)
-    model_satellite = load_model('satellite.h5')
+    model_satellite = load_model(os.path.abspath('satellite.h5'))
     print(image_satellite.file)
     # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
     try:
