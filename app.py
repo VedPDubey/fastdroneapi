@@ -16,6 +16,7 @@ from pydantic import BaseModel
 import base64
 from tensorflow.keras.models import load_model
 import tensorflow as tf
+import socket
 
 middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
 
@@ -134,4 +135,4 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
     }
 
 if __name__=='__main__':
-     uvicorn.run(app, debug=True)
+     uvicorn.run(app,host=socket.gethostname(),port=3000)
