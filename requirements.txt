@@ -10,7 +10,6 @@ uvicorn==0.14.0
 fastapi==0.70.0
 Pillow==8.3.2
 pydantic==1.8.2
-opencv-python-headless
 skia-python
 python-multipart
 gunicorn==19.9.0
