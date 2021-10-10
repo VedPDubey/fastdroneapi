@@ -80,7 +80,7 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
     model_satellite = model_from_json(loaded_model_json)
 
     # load weights into new model
-    model_satellite.load_weights("model_flood.h5")
+    model_satellite.load_weights(os.path.abspath("model_flood.h5"))
     print("Loaded model from disk")
     print(image_satellite.file)
     # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
