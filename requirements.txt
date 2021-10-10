@@ -10,7 +10,7 @@ pydantic==1.8.2
 tensorflow-cpu
 Keras
 gunicorn==19.9.0
-h5py==3.1.0
+h5py==2.10.0
 opencv-python-headless
 skia-python
 python-multipart
