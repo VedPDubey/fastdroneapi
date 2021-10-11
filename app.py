@@ -142,4 +142,4 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
     }
 
 if __name__=='__main__':
-     uvicorn.run(app,host=socket.gethostname(),port=8080)
+     uvicorn.run(app,debug=True)
