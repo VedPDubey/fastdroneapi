@@ -9,7 +9,7 @@ from fastapi.middleware import Middleware
 from PIL import Image
 import numpy as np
 from matplotlib import cm
-from keras_segmentation.models.all_models import model_from_name
+# from keras_segmentation.models.all_models import model_from_name
 from starlette.responses import StreamingResponse
 import cv2
 from pydantic import BaseModel
