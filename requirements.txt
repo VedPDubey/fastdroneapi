@@ -1,13 +1,13 @@
 tensorflow-cpu==2.4.1
 numpy==1.19.5
 starlette==0.14.2
-# matplotlib==3.3.2
+matplotlib==3.3.2
 pydantic==1.8.2
 opencv_python_headless==4.5.3.56
 uvicorn==0.14.0
 fastapi==0.68.1
 Pillow==8.3.2
-# pydantic==1.8.2
+pydantic==1.8.2
 skia-python
 python-multipart
 gunicorn==19.9.0
