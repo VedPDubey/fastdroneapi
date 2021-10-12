@@ -9,15 +9,13 @@ from fastapi.middleware import Middleware
 from PIL import Image
 import numpy as np
 from matplotlib import cm
-# from keras_segmentation.models.all_models import model_from_name
+from keras_segmentation.models.all_models import model_from_name
 from starlette.responses import StreamingResponse
 import cv2
 from pydantic import BaseModel
 import base64
 from tensorflow.keras.models import load_model,model_from_json
 import tensorflow as tf
-import socket
-import keras
 
 middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
 
